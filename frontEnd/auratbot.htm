@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuratBot Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #edb2e904; /* Baby Purple Background */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .chat-header {
+            background-color: purple; /* Medium Purple Header */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .message {
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            max-width: 70%;
+        }
+
+        .message-bot {
+            background-color: darkmagenta; /* Medium Purple Bot Message */
+            color: #ffffff;
+            align-self: flex-start;
+        }
+
+        .message-user {
+            background-color: #f2dcf5; /* Beige User Message */
+            align-self: flex-end;
+        }
+
+        .input-container {
+            display: flex;
+            padding: 10px;
+            background-color: #9370db; /* Beige Input Background */
+        }
+
+        .user-input {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .send-button {
+            background-color: #461d44; /* Medium Purple Send Button */
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            AuratBot Chat
+        </div>
+        <div class="chat-messages">
+            <div class="message message-bot">Ask me a question</div>
+        </div>
+        <div class="input-container">
+            <input type="text" class="user-input" placeholder="Type your message...">
+            <button class="send-button" onclick="sendMessage()">Send</button>
+        </div>
+
+        <script>
+            function sendMessage() {
+                var userInput = document.querySelector('.user-input');
+                var messageContainer = document.querySelector('.chat-messages');
+
+                // Get user input
+                var userMessage = userInput.value.trim();
+                if (userMessage === '') return;
+
+                // Display user message
+                var userMessageElement = document.createElement('div');
+                userMessageElement.classList.add('message', 'message-user');
+                userMessageElement.textContent = userMessage;
+                messageContainer.appendChild(userMessageElement);
+
+                // Handle different scenarios based on user input
+                if (userMessage.toLowerCase().includes('how to use easypaisa')) {
+                    // Provide information on using Easypaisa
+                    var botResponse = "Your detailed response for using Easypaisa goes here.";
+                } else if (userMessage.toLowerCase().includes('how to use jazzcash')) {
+                    // Provide information on using JazzCash
+                    var botResponse = "Your detailed response for using JazzCash goes here.";
+                } else if (userMessage.toLowerCase().includes('symptoms of pcos')) {
+                    // Provide information on symptoms of PCOS
+                    var botResponse = "Your detailed response for symptoms of PCOS goes here.";
+                } else if (userMessage.toLowerCase().includes('common marriage clauses in pakistan')) {
+                    // Provide information on common marriage clauses in Pakistan
+                    var botResponse = "Your detailed response for common marriage clauses in Pakistan goes here.";
+                } else if (userMessage.toLowerCase().includes('open online bank account')) {
+                    // Provide information on opening an online bank account
+                    var botResponse = "Your detailed response for opening an online bank account goes here.";
+                } else {
+                    // Generic response for other queries
+                    var botResponse = 'I am just a simple example bot. Ask me about specific topics to get detailed information.';
+                }
+
+                // Display the bot's response
+                var botMessageElement = document.createElement('div');
+                botMessageElement.classList.add('message', 'message-bot');
+                botMessageElement.innerHTML = botResponse;
+                messageContainer.appendChild(botMessageElement);
+
+                // Clear user input
+                userInput.value = '';
+
+                // Scroll to the bottom of the chat container
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            }
+        </script>
+    </div>
+</body>
+
+</html

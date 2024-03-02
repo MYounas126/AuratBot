@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auratbot - Your Personal Chat Assistant</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #chat-container {
+            background-color: #8a2be2; /* Purple background color */
+            width: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        #chat-header {
+            background-color: #4b0082; /* Darker purple for the header */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        #chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        #user-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        #input-text {
+            flex-grow: 1;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #send-button {
+            background-color: #4b0082;
+            color: #fff;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-header">Auratbot</div>
+        <div id="chat-messages"></div>
+        <div id="user-input">
+            <input type="text" id="input-text" placeholder="Type your message...">
+            <button id="send-button" onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userInput = document.getElementById('input-text').value;
+            const chatMessages = document.getElementById('chat-messages');
+
+            // Display user's message
+            chatMessages.innerHTML += `<div><strong>You:</strong> ${userInput}</div>`;
+
+            // Check if the user input is a request for PCOS symptoms
+            if (userInput.toLowerCase().includes("symptoms for pcos")) {
+                // Respond with the specific information about PCOS symptoms from MayoClinic
+                const auratbotResponse = `
+                    According to MayoClinic, symptoms of PCOS often start around the time of the first menstrual period. 
+                    Sometimes symptoms develop later after you have had periods for a while.<br><br>
+                    The symptoms of PCOS vary. A diagnosis of PCOS is made when you have at least two of these:<br><br>
+                    - Irregular periods. Having few menstrual periods or having periods that aren't regular are common signs of PCOS.
+                    So is having periods that last for many days or longer than is typical for a period. For example, you might have fewer 
+                    than nine periods a year. And those periods may occur more than 35 days apart. You may have trouble getting pregnant.<br>
+                    - Too much androgen. High levels of the hormone androgen may result in excess facial and body hair. This is called hirsutism. 
+                    Sometimes, severe acne and male-pattern baldness can happen, too.<br>
+                    - Polycystic ovaries. Your ovaries might be bigger. Many follicles containing immature eggs may develop around the edge 
+                    of the ovary. The ovaries might not work the way they should.<br>
+                    - PCOS signs and symptoms are typically more severe in people with obesity.<br><br>
+                    For further information, go to <a href="https://www.mayoclinic.org/diseases-conditions/pcos/symptoms-causes/syc-20353439" target="_blank">Mayo Clinic - PCOS</a>`;
+                
+                // Display Auratbot's response
+                chatMessages.innerHTML += `<div><strong>Auratbot:</strong> ${auratbotResponse}</div>`;
+            } else {
+                // For other inputs, you can add a generic response or any other specific logic
+                const auratbotResponse = "I am Auratbot, your personal chat assistant. How can I help you today?";
+                chatMessages.innerHTML += `<div><strong>Auratbot:</strong> ${auratbotResponse}</div>`;
+            }
+
+            // Clear the input field
+            document.getElementById('input-text').value = '';
+        }
+    </script>
+</body>
+</html>

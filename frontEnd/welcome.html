@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AuratBot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .welcome-container {
+            text-align: center;
+        }
+
+        .welcome-message {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .start-button {
+            background-color: purple;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .typewriter-heading {
+            overflow: hidden; /* Hide overflow to create typewriter effect */
+            white-space: nowrap; /* Prevent text from wrapping */
+            margin-bottom: 10px;
+        }
+
+        .typewriter-text {
+            display: inline-block;
+            animation: typing 2s steps(40) 1s forwards, fadeIn 1s forwards;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="welcome-container">
+        <h1 class="typewriter-heading">
+            <span class="typewriter-text">Welcome to AuratBot</span>
+        </h1>
+        <p class="welcome-message">Where all your questions will be answered as a woman. A Pakistani bot by women for women.</p>
+        <button class="start-button" onclick="startChat()">Start Chat</button>
+    </div>
+
+    <script>
+        function startChat() {
+            window.location.href = 'auratbot.htm'; // Link to your AuratBot HTML page
+        }
+    </script>
+</body>
+
+</html>
